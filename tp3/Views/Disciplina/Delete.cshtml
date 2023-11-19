@@ -1,0 +1,39 @@
+﻿@model tp3.Models.Disciplina
+
+@{
+    ViewData["Title"] = "Apagar";
+}
+
+<h1>Apagar</h1>
+
+<h3>Tem certeza de que deseja excluir?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Horas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Horas)
+        </dd>
+        <dt class = "col-sm-2">
+            @* @Html.DisplayNameFor(model => model.Professor) *@
+            Professor
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Professor.Nome)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="DisciplinaId" />
+        <input type="submit" value="Apagar" class="btn btn-danger" />
+        <a class="btn btn-primary" asp-action="Index">Voltar</a>
+    </form>
+</div>

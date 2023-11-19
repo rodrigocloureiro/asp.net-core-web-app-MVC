@@ -1,0 +1,47 @@
+﻿@model IEnumerable<tp3.Models.Professor>
+
+@{
+    ViewData["Title"] = "Professores";
+}
+
+<h1>Professores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Criar Novo</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataContratacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataContratacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.ProfessorId">Editar</a>
+                <a class="btn btn-success" asp-action="Details" asp-route-id="@item.ProfessorId">Detalhes</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProfessorId">Apagar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
